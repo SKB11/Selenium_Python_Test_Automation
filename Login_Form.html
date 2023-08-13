@@ -1,0 +1,60 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form action="">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"
+               pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}$"
+               title="Password must contain at least one number, one capital letter, one special character, and be at least 8 characters long"
+               required><br>
+        <small>Password must contain at least one number, one capital letter, one special character, and be at least 8 characters long.</small><br><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html> -->
+
+
+//version 2
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm" action="">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"
+               pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}$"
+               title="Password must contain at least one number, one capital letter, one special character, and be at least 8 characters long"
+               required><br>
+        <small>Password must contain at least one number, one capital letter, one special character, and be at least 8 characters long.</small><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <div id="successMessage" style="display: none;">
+        <p>Login successful! Closing the form...</p>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var passwordInput = document.getElementById("password");
+            if (passwordInput.validity.valid) {
+                // Successful login
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("successMessage").style.display = "block";
+                setTimeout(function() {
+                    window.close();
+                }, 3000); // Close the form after 3 seconds
+            }
+        });
+    </script>
+</body>
+</html>
